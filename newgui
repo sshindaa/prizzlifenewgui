@@ -1,0 +1,69 @@
+-- Modernized GUI for PrizzLife Script (Clean Dark Theme)
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+
+local PLAdmin = Instance.new("ScreenGui")
+PLAdmin.Name = "PLAdmin"
+PLAdmin.Parent = PlayerGui
+PLAdmin.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+PLAdmin.ResetOnSpawn = false
+
+local MainFrame = Instance.new("Frame")
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = PLAdmin
+MainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+MainFrame.Size = UDim2.new(0, 310, 0, 190)
+MainFrame.BorderSizePixel = 0
+MainFrame.Active = true
+MainFrame.Draggable = true
+
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 10)
+UICorner.Parent = MainFrame
+
+local TitleBar = Instance.new("TextLabel")
+TitleBar.Parent = MainFrame
+TitleBar.Size = UDim2.new(1, 0, 0, 24)
+TitleBar.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+TitleBar.Text = "  PrizzLife Admin GUI"
+TitleBar.Font = Enum.Font.GothamSemibold
+TitleBar.TextColor3 = Color3.fromRGB(255, 255, 255)
+TitleBar.TextSize = 14
+TitleBar.TextXAlignment = Enum.TextXAlignment.Left
+
+local ExecBar = Instance.new("TextBox")
+ExecBar.Parent = MainFrame
+ExecBar.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+ExecBar.Position = UDim2.new(0, 10, 1, -35)
+ExecBar.Size = UDim2.new(1, -20, 0, 25)
+ExecBar.Font = Enum.Font.Gotham
+ExecBar.TextColor3 = Color3.fromRGB(220, 220, 220)
+ExecBar.PlaceholderText = "Command here..."
+ExecBar.Text = ""
+ExecBar.TextSize = 14
+ExecBar.ClearTextOnFocus = false
+
+local ExecCorner = Instance.new("UICorner")
+ExecCorner.CornerRadius = UDim.new(0, 6)
+ExecCorner.Parent = ExecBar
+
+local CloseButton = Instance.new("TextButton")
+CloseButton.Parent = MainFrame
+CloseButton.BackgroundColor3 = Color3.fromRGB(255, 65, 65)
+CloseButton.Position = UDim2.new(1, -24, 0, 2)
+CloseButton.Size = UDim2.new(0, 20, 0, 20)
+CloseButton.Text = "X"
+CloseButton.Font = Enum.Font.GothamBold
+CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.TextSize = 12
+local closeCorner = Instance.new("UICorner", CloseButton)
+closeCorner.CornerRadius = UDim.new(0, 4)
+
+CloseButton.MouseButton1Click:Connect(function()
+	MainFrame.Visible = false
+end)
+
+-- Add your command buttons and toggles below as needed --
